@@ -1,0 +1,23 @@
+.container {
+    margin-left: 24px;
+    margin-right: 38px;
+}
+
+.text {
+    font-style: italic;
+    font-size: 18px;
+}
+
+.name {
+    font-size: 24px;
+    margin-top: 45px;
+}
+
+.title {
+    font-size: 36px;
+    text-align: center;
+}
+.noReviews {
+    font-size: 24px;
+    font-style: italic;
+}
