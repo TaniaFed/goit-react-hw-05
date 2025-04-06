@@ -21,7 +21,7 @@ const SearchBar = ({ onSubmit }) => {
 
     onSubmit(query)
 
-    setQuery('')
+    setQuery(query)
   }
 
   return (
@@ -32,9 +32,8 @@ const SearchBar = ({ onSubmit }) => {
         name="search"
         value={query}
         type="text"
-        autoComplete="off"
         autoFocus
-        placeholder="Search images and photos"
+        placeholder="Movie search"
       />
       <button className={style.button} type="submit">
         Search

@@ -1,9 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import {
+  useParams,
+  NavLink,
+  Link,
+  Outlet,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom'
 import css from './MovieDetailsPage.module.css'
 import { MdOutlineArrowCircleLeft } from 'react-icons/md'
 import { FcRating } from 'react-icons/fc'
 import { ThreeDot } from 'react-loading-indicators'
-import { useParams, NavLink, Link, Outlet } from 'react-router-dom'
 import { fetchMovieById } from '../../userService'
 
 export default function MovieDetailsPage() {
@@ -11,6 +18,13 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
+  const backBtn = useRef(location.state?.from || { pathname: '/movies' })
+
+  const handleGoBack = () => {
+    navigate(backBtn.current)
+  }
 
   useEffect(() => {
     async function getMovie() {
@@ -36,14 +50,13 @@ export default function MovieDetailsPage() {
 
   return (
     <div className={css.container}>
-      <Link to="/">
-        <button className={css.backBtn} type="submit">
-          <div className={css.btn}>
-            <MdOutlineArrowCircleLeft />
-            Back
-          </div>
-        </button>
-      </Link>
+      <button onClick={handleGoBack} className={css.backBtn} type="button">
+        <div className={css.btn}>
+          <MdOutlineArrowCircleLeft />
+          Back
+        </div>
+      </button>
+
       {isLoading && (
         <ThreeDot
           variant="bounce"
