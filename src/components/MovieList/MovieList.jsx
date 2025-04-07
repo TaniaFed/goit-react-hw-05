@@ -10,26 +10,26 @@ export default function MovieList({ movies }) {
     <ul className={css.list}>
       {movies.map((movie) => (
         <div key={movie.id} className={css.listBox}>
-          <img
-            src={
-              movie.poster_path
-                ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                : defaultImg
-            }
-            alt="movie.title"
-            width={200}
-            height={250}
-          />
-          <li className={css.listItem}>
-            <Link
-              to={`/movies/${movie.id}`}
-              state={location}
-              className={css.movieName}
-            >
+          <Link
+            to={`/movies/${movie.id}`}
+            state={location}
+            className={css.movieName}
+          >
+            <img
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                  : defaultImg
+              }
+              alt="movie.title"
+              width={200}
+              height={250}
+            />
+            <li className={css.listItem}>
               {movie.title}{' '}
               {movie.release_date ? `(${movie.release_date.slice(0, 4)})` : ''}
-            </Link>
-          </li>
+            </li>
+          </Link>
         </div>
       ))}
     </ul>
