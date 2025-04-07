@@ -10,10 +10,6 @@
     height: 350px;
     text-align: center;
 }
-/* .listItem {
-   display: flex; 
-   flex-direction: column;
-} */
 
 .list {
     display: flex;

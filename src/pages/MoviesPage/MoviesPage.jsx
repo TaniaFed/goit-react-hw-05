@@ -1,4 +1,3 @@
-// import style from './MoviesPage.module.css'
 import { useEffect, useState } from 'react'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import MovieList from '../../components/MovieList/MovieList'
@@ -9,6 +8,7 @@ export default function MoviesPage() {
   const [movies, setMovies] = useState([])
   const [searchParams, setSearchParams] = useSearchParams()
   const query = searchParams.get('query') || ''
+
   useEffect(() => {
     if (!query) return
 

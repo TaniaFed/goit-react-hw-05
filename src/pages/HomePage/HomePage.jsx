@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import css from './HomePage.module.css'
-
 import { ThreeDot } from 'react-loading-indicators'
 import toast, { Toaster } from 'react-hot-toast'
 import { fetchTrendingMovies } from '../../userService'

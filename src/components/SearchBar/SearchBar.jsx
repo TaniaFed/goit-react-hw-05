@@ -1,6 +1,5 @@
 import style from './SearchBar.module.css'
 import { useState } from 'react'
-
 import toast from 'react-hot-toast'
 
 const notify = () => toast('Enter search requirements!')

@@ -1,4 +1,3 @@
-// import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import css from './App.module.css'
 import Navigation from '../Navigation/Navigation'
