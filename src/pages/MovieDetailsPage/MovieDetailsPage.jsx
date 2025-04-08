@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Link, useParams, NavLink, Outlet, useLocation } from 'react-router-dom'
 import css from './MovieDetailsPage.module.css'
 import { MdOutlineArrowCircleLeft } from 'react-icons/md'
@@ -13,7 +13,7 @@ export default function MovieDetailsPage() {
   const [error, setError] = useState(false)
   const location = useLocation()
 
-  const handleGoBack = location.state ?? '/movies'
+  const handleGoBack = useRef(location.state ?? '/movies')
 
   useEffect(() => {
     async function getMovie() {
@@ -39,7 +39,7 @@ export default function MovieDetailsPage() {
 
   return (
     <div className={css.container}>
-      <Link to={handleGoBack}>
+      <Link to={handleGoBack.current}>
         <button className={css.backBtn} type="button">
           <div className={css.btn}>
             <MdOutlineArrowCircleLeft />
